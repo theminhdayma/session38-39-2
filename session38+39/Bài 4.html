@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Don't Laugh Challenge</title>
+    <link rel="stylesheet" href="./Bài 4.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Don't Laugh Challenge</h2>
+      <div class="joke-container">
+        <p class="joke"></p>
+        <button class="btn" onclick="set_joke()">Get another joke</button>
+      </div>
+    </div>
+    <script>
+      let jokes = [
+        "All vampires keep their money in a special place—the blood bank.",
+        "What do you call someone who can’t stick to a diet? A desserter.",
+        "I only seem to get sick on weekdays. I must have a weekend immune system.",
+        "You can tell it's a dogwood tree from its bark.",
+        "What do you call a sheep that knows karate? A lamb chop.",
+        "What does a dad get in their stocking if they’ve been naughty? Char-coal.",
+        "Why did the scarecrow win an award? Because he was outstanding in his field",
+        "What do you call a cow with no legs? Ground beef.",
+        "What has ears but cannot hear? A cornfield!",
+        "I don’t get why Marvel doesn’t use the Hulk to advertise more. He’s basically one big Banner.",
+      ];
+
+      function set_joke() {
+        let random_joke = jokes[Math.floor(Math.random() * jokes.length)];
+        let jokeElement = document.querySelector(".joke");
+        jokeElement.textContent = random_joke;
+
+        set_random_background_color();
+      }
+
+      function set_random_background_color() {
+        let randomColor =
+          "#" + Math.floor(Math.random() * 16777215).toString(16);
+        document.body.style.backgroundColor = randomColor;
+      }
+    </script>
+  </body>
+</html>

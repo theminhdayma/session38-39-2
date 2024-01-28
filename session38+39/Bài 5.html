@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./Bài 5.css">
+  </head>
+  <!-- Nạp thư viện jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+  <!-- Nạp thư viện FontAwesome -->
+  <script
+    src="https://kit.fontawesome.com/a076d05399.js"
+    crossorigin="anonymous"
+  ></script>
+  <body>
+    <div class="background">
+      <div class="icon icon-1">
+        <i class="fa-brands fa-twitter"></i>
+        <div class="count">12000</div>
+        <span>Twitter Followers</span>
+      </div>
+      <div class="icon icon-2">
+        <i class="fa-brands fa-youtube"></i>
+        <div class="count">5000</div>
+        <span>YouTube Subscribers</span>
+      </div>
+      <div class="icon icon-3">
+        <i class="fa-brands fa-facebook"></i>
+        <div class="count">7500</div>
+        <span>Facebook Fans</span>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        var counters = $(".count");
+        var countersQuantity = counters.length;
+        var counter = [];
+
+        for (i = 0; i < countersQuantity; i++) {
+          counter[i] = parseInt(counters[i].innerHTML);
+        }
+
+        var count = function (start, value, id) {
+          var localStart = start;
+          var interval = Math.floor(3000 / value); // Tính toán khoảng thời gian giữa mỗi bước đếm
+
+          var intervalId = setInterval(function () {
+            if (localStart < value) {
+              localStart++;
+              counters[id].innerHTML = localStart;
+            } else {
+              clearInterval(intervalId);
+            }
+          }, interval);
+        };
+
+        for (j = 0; j < countersQuantity; j++) {
+          count(0, counter[j], j);
+        }
+      });
+    </script>
+  </body>
+</html>

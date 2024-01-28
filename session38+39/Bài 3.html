@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="./Bài 3.css">
+</head>
+<body>
+  <div id="image-container">
+    <img id="img" src="https://giaydabongtot.com/wp-content/uploads/2020/10/Anh-hinh-nen-ronaldo-cr7-18.jpg" alt="">
+    <div id="load" style="color: red;">0%</div>
+  </div>
+
+  <script>
+    window.addEventListener('load', function() {
+      let img = document.getElementById('img');
+      let load = document.getElementById('load');
+      img.style.opacity = 0;
+      load.style.opacity = 1;
+      setTimeout(function() {
+        img.style.opacity = 1;
+      }, 1000); 
+
+      let loadOpacity = 0;
+      let loadInterval = setInterval(function() {
+        if (loadOpacity >= 1) {
+          clearInterval(loadInterval);
+        } else {
+          loadOpacity += 0.01;
+          load.style.opacity = loadOpacity;
+          load.innerHTML = Math.round(loadOpacity * 100) + "%";
+        }
+      }, 20);
+
+      setTimeout(function() {
+        load.style.opacity = 0;
+      }, 2000); 
+    });
+  </script>
+</body>
+</html>

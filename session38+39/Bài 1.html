@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./Bài 1.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="circle" id="id1">1</div>
+      <div class="circle" id="id2">2</div>
+      <div class="circle" id="id3">3</div>
+      <div class="circle" id="id4">4</div>
+      <div class="crossbar crossbar-1"></div>
+      <div class="crossbar crossbar-2"></div>
+      <div class="crossbar crossbar-3"></div>
+    </div>
+    <div>
+      <button onclick="prev()" id="prevButton" class="color">prev</button>
+      <button onclick="next()" id="nextButton" class="color">next</button>
+    </div>
+    <script>
+      let currentId = 1;
+
+      function next() {
+        if (currentId <= 3) {
+          currentId++;
+          updateIds();
+          updatebtns();
+        }
+      }
+
+      function prev() {
+        if (currentId >= 2) {
+          currentId--;
+          updateIds();
+          updatebtns();
+        }
+      }
+
+      function updatebtns() {
+        let prevButton = document.getElementById("prevButton");
+        let nextButton = document.getElementById("nextButton");
+
+        prevButton.disabled = currentId === 1;
+        nextButton.disabled = currentId === 4;
+
+        if (prevButton.disabled) {
+          prevButton.classList.add("disabled");
+        } else {
+          prevButton.classList.remove("disabled");
+        }
+
+        if (nextButton.disabled) {
+          nextButton.classList.add("disabled");
+        } else {
+          nextButton.classList.remove("disabled");
+        }
+      }
+
+      function updateIds() {
+        for (let i = 1; i <= 4; i++) {
+          let id = document.getElementById(`id${i}`);
+          if (i <= currentId) {
+            id.classList.add("color");
+          } else {
+            id.classList.remove("color");
+          }
+        }
+      }
+
+      updateIds();
+      updatebtns();
+    </script>
+  </body>
+</html>

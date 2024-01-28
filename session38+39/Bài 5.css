@@ -1,0 +1,22 @@
+.background {
+    width: 600px;
+    height: 250px;
+    background-color: blueviolet;
+    color: white;
+    margin: auto;
+    margin-top: 50px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }

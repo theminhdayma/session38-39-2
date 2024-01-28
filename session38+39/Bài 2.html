@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./Bài 2.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+  </head>
+  <body>
+    <div id="container">
+      <div id="btn" class="change">
+        <button class="material-symbols-outlined change">search</button>
+      </div>
+    </div>
+    <script>
+      let start = document.getElementById("container");
+      let btn = document.getElementById("btn");
+      let searchInput = null;
+
+      btn.addEventListener("click", toggleSearch);
+
+      function toggleSearch() {
+        if (searchInput === null) {
+          searchInput = document.createElement("input");
+          searchInput.type = "search";
+          searchInput.className = "inp";
+          searchInput.placeholder = "search...";
+          start.appendChild(searchInput);
+          start.classList.add("a");
+        } else {
+          start.removeChild(searchInput);
+          searchInput = null;
+          start.classList.remove("a");
+        }
+      }
+    </script>
+  </body>
+</html>
